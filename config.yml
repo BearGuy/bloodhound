@@ -1,0 +1,12 @@
+chains:
+  - name: "Invoke Chain"
+    description: "A chain that tracks the invoke process"
+    timeout: 60
+    initial_event_type: "test.StartEvent"
+    events:
+      - event_type: "test.StartEvent"
+        type: "kafka"
+        key_field: "attempt_id"
+      - event_type: "test.EndEvent"
+        type: "kafka"
+        key_field: "attempt_id"
